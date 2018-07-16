@@ -7,7 +7,7 @@ package com.ksewen.refactor.service.tools;
  * @create: 2018/7/16 下午1:55
  **/
 
-public interface JsonService {
+public interface ObjectMapperService {
     <T> T toModel(String jsonString, Class<T> clazz);
     <T> String toJson(T object, Class<T> clazz);
 }

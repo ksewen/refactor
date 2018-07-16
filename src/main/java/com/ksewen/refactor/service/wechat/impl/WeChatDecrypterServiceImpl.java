@@ -5,7 +5,7 @@ import com.ksewen.refactor.model.GetWeChatSessionModel;
 import com.ksewen.refactor.model.WeChatOpenDataModel;
 import com.ksewen.refactor.service.customer.UserService;
 import com.ksewen.refactor.service.encrypt.EncryptService;
-import com.ksewen.refactor.service.tools.JsonService;
+import com.ksewen.refactor.service.tools.ObjectMapperService;
 import com.ksewen.refactor.service.wechat.AbstractWeChatDecrypterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class WeChatDecrypterServiceImpl extends AbstractWeChatDecrypterService {
     private EncryptService encryptService;
 
     @Autowired
-    private JsonService jsonService;
+    private ObjectMapperService objectMapperService;
 
     @Override
     protected GetWeChatSessionModel getWechatSession(String openId) {
@@ -37,7 +37,7 @@ public class WeChatDecrypterServiceImpl extends AbstractWeChatDecrypterService {
 
     @Override
     protected String decryptForUnionId(String encryptedData, String sessionKey, String iv) {
-        WeChatOpenDataModel data = jsonService
+        WeChatOpenDataModel data = objectMapperService
                 .toModel(encryptService.decrypt(encryptedData, sessionKey, iv), WeChatOpenDataModel.class);
         if (data == null) {
             throw new WeChatDecrypterException("could not decrypt encryptedData");

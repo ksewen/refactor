@@ -1,7 +1,7 @@
 package com.ksewen.refactor.service.tools.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ksewen.refactor.service.tools.JsonService;
+import com.ksewen.refactor.service.tools.ObjectMapperService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -16,9 +16,9 @@ import javax.annotation.Resource;
  * @create: 2018/7/16 下午1:56
  **/
 @Service
-public class JsonServiceImpl implements JsonService {
+public class ObjectMapperServiceImpl implements ObjectMapperService {
 
-    private static final Logger logger = LoggerFactory.getLogger(JsonServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ObjectMapperServiceImpl.class);
 
     @Resource(name = "dtoObjMapper")
     private ObjectMapper objectMapper;
