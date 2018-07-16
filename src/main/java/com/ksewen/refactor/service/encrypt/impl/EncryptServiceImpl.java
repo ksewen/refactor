@@ -1,11 +1,10 @@
 package com.ksewen.refactor.service.encrypt.impl;
 
-import com.ksewen.refactor.service.encrypt.WeChatCryptService;
+import com.ksewen.refactor.service.encrypt.EncryptService;
 import com.ksewen.refactor.utils.WeChatPKCS7Encoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import sun.misc.BASE64Decoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -21,13 +20,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @create: 2018/7/15 下午10:21
  **/
 @Service
-public class WeChatCryptServiceImpl implements WeChatCryptService {
+public class EncryptServiceImpl implements EncryptService {
 
     private static final String ALGORITHM = "AES/CBC/NoPadding";
     private static final String ALGORITHM_TYPE = "AES";
     private static final String CHARSET = "UTF-8";
 
-    private static final Logger logger = LoggerFactory.getLogger(WeChatCryptServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(EncryptServiceImpl.class);
 
     @Override
     public String decrypt(String encryptedData, String sessionKey, String iv) {

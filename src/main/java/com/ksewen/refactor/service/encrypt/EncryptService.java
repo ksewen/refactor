@@ -1,5 +1,5 @@
 package com.ksewen.refactor.service.encrypt;
 
-public interface WeChatCryptService {
+public interface EncryptService {
     String decrypt(String encryptedData, String sessionKey, String iv);
 }
