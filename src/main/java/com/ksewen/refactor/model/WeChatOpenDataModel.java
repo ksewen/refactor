@@ -3,7 +3,7 @@ package com.ksewen.refactor.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @program: eyee-backend
+ * @program: refactor
  * @description:
  * @author: ksewen
  * @create: 2018/7/13 下午3:32

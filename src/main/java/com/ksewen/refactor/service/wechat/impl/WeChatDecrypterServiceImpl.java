@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
- * @program: eyee-backend
+ * @program: refactor
  * @description:
  * @author: ksewen
  * @create: 2018/7/13 下午3:38
@@ -40,7 +40,7 @@ public class WeChatDecrypterServiceImpl extends AbstractWeChatDecrypterService {
         WeChatOpenDataModel data = objectMapperService
                 .toModel(encryptService.decrypt(encryptedData, sessionKey, iv), WeChatOpenDataModel.class);
         if (data == null) {
-            throw new WeChatDecrypterException("could not decrypt encryptedData");
+            throw new WeChatDecrypterException("could not decrypt: " + encryptedData);
         }
         return data.getUnionId();
     }

@@ -6,7 +6,7 @@ import com.ksewen.refactor.model.GetWeChatSessionModel;
 import org.springframework.util.StringUtils;
 
 /**
- * @program: eyee-backend
+ * @program: refactor
  * @description:
  * @author: ksewen
  * @create: 2018/7/13 下午3:20

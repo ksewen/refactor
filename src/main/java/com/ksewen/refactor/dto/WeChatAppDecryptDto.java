@@ -1,7 +1,7 @@
 package com.ksewen.refactor.dto;
 
 /**
- * @program: eyee-backend
+ * @program: refactor
  * @description:
  * @author: ksewen
  * @create: 2018/7/13 下午2:29

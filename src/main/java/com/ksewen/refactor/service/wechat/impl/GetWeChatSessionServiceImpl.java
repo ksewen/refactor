@@ -1,11 +1,11 @@
 package com.ksewen.refactor.service.wechat.impl;
 
 import com.ksewen.refactor.domain.WeChatAppMappingDomain;
-import com.ksewen.refactor.mapper.wechat.WeChatMappingMapper;
 import com.ksewen.refactor.model.GetWeChatSessionModel;
 import com.ksewen.refactor.service.customer.UserService;
 import com.ksewen.refactor.service.wechat.AbstractGetWeChatSessionService;
 import com.ksewen.refactor.service.wechat.WeChatAuthService;
+import com.ksewen.refactor.service.wechat.WeChatMappingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
- * @program: eyee-backend
+ * @program: refactor
  * @description:
  * @author: ksewen
  * @create: 2018/7/13 上午11:47
@@ -22,7 +22,7 @@ import org.springframework.util.StringUtils;
 public class GetWeChatSessionServiceImpl extends AbstractGetWeChatSessionService {
 
     @Autowired
-    private WeChatMappingMapper weChatMappingMapper;
+    private WeChatMappingService weChatMappingService;
 
     @Autowired
     private UserService userService;
@@ -33,11 +33,8 @@ public class GetWeChatSessionServiceImpl extends AbstractGetWeChatSessionService
     private static final Logger logger = LoggerFactory.getLogger(GetWeChatSessionServiceImpl.class);
 
     @Override
-    protected WeChatAppMappingDomain getWechatMapping(String appId) {
-        WeChatAppMappingDomain appMapping = weChatMappingMapper.selectByAppId(appId);
-        if (appMapping == null)
-            return null;
-        return appMapping;
+    protected String getAppSecret(String appId) {
+        return weChatMappingService.getSecretByAppId(appId);
     }
 
     @Override

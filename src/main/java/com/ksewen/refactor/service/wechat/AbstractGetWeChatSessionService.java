@@ -9,7 +9,7 @@ import com.ksewen.refactor.model.GetWeChatSessionModel;
 import org.springframework.util.StringUtils;
 
 /**
- * @program: eyee-backend
+ * @program: refactor
  * @description:
  * @author: ksewen
  * @create: 2018/7/13 上午10:56
@@ -19,11 +19,11 @@ public abstract class AbstractGetWeChatSessionService implements WechatSessionGe
 
     @Override
     public WeChatAppSessionDto getSession(String appId, String code) {
-        WeChatAppMappingDomain appMapping = getWechatMapping(appId);
-        if (!checkMapping(appMapping))
+        String secret = getAppSecret(appId);
+        if (StringUtils.isEmpty(secret))
             throw new ResourceNotFoundException("app not exist id: " + appId);
 
-        GetWeChatSessionModel wxSessionModel = getWechatSession(appMapping.getAppId(), appMapping.getSecret(), code);
+        GetWeChatSessionModel wxSessionModel = getWechatSession(appId, secret, code);
         if (!checkWxSessionModel(wxSessionModel))
             throw new GetWeChatSessionException("get wechat session faild!");
 
@@ -34,7 +34,7 @@ public abstract class AbstractGetWeChatSessionService implements WechatSessionGe
                 .build();
     }
 
-    protected abstract WeChatAppMappingDomain getWechatMapping(String appId);
+    protected abstract String getAppSecret(String appId);
 
     protected abstract GetWeChatSessionModel getWechatSession(String appId, String secret, String code);
 

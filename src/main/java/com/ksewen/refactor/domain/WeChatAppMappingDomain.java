@@ -2,7 +2,7 @@ package com.ksewen.refactor.domain;
 
 
 /**
- * @program: eyee-backend
+ * @program: refactor
  * @description:
  * @author: ksewen
  * @create: 2018/7/13 上午9:36
