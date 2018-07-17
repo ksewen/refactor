@@ -8,5 +8,6 @@ package com.ksewen.refactor.service.customer;
  **/
 
 public interface UserService {
+    boolean checkUserExistById(String id);
     boolean checkUserExistByWeChat(String unionId);
 }

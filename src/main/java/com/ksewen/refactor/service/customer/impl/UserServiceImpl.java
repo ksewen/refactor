@@ -14,6 +14,11 @@ import org.springframework.util.StringUtils;
 public class UserServiceImpl implements UserService {
 
     @Override
+    public boolean checkUserExistById(String id) {
+        return false;
+    }
+
+    @Override
     public boolean checkUserExistByWeChat(String unionId) {
         if (StringUtils.isEmpty(unionId))
             return false;

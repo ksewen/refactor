@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @author: ksewen
  * @create: 2018/7/13 上午9:28
  **/
-@RequestMapping("/wechat/open")
+@RequestMapping("/wechat")
 @RestController
 public class WeChatController {
 
@@ -25,6 +25,8 @@ public class WeChatController {
 
     @GetMapping("/appHelp/{appId}")
     public ResponseBase appHelp(@PathVariable("appId") String appId, @RequestParam("code") String code) {
+        if (StringUtils.isEmpty(code))
+            return ResponseBase.missingParameter();
         return ResponseBase.ok(weChatSessionGetter.getSession(appId, code));
     }
 

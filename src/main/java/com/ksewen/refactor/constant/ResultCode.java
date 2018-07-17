@@ -48,6 +48,6 @@ public enum  ResultCode {
     @JsonCreator
     public static ResultCode forCode(Integer code) {
         return Arrays.asList(values()).stream()
-                .filter(resultCode -> resultCode.getCode() == code).findFirst().orElse(SERVER_ERROR);
+                .filter(resultCode -> Integer.valueOf(code).equals(resultCode.getCode())).findFirst().orElse(SERVER_ERROR);
     }
 }
