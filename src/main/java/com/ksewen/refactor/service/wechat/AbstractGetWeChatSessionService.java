@@ -2,7 +2,7 @@ package com.ksewen.refactor.service.wechat;
 
 
 import com.ksewen.refactor.domain.WeChatAppMappingDomain;
-import com.ksewen.refactor.dto.WeChatAppSessionDto;
+import com.ksewen.refactor.dto.wechat.WeChatAppSessionDto;
 import com.ksewen.refactor.exception.GetWeChatSessionException;
 import com.ksewen.refactor.exception.ResourceNotFoundException;
 import com.ksewen.refactor.model.GetWeChatSessionModel;
@@ -15,7 +15,7 @@ import org.springframework.util.StringUtils;
  * @create: 2018/7/13 上午10:56
  **/
 
-public abstract class AbstractGetWeChatSessionService implements WechatSessionGetter {
+public abstract class AbstractGetWeChatSessionService implements WeChatSessionGetter {
 
     @Override
     public WeChatAppSessionDto getSession(String appId, String code) {

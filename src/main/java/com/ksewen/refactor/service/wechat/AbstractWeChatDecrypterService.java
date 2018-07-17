@@ -1,6 +1,6 @@
 package com.ksewen.refactor.service.wechat;
 
-import com.ksewen.refactor.dto.WeChatAppDecryptDto;
+import com.ksewen.refactor.dto.wechat.WeChatAppDecryptDto;
 import com.ksewen.refactor.exception.GetWeChatSessionException;
 import com.ksewen.refactor.model.GetWeChatSessionModel;
 import org.springframework.util.StringUtils;

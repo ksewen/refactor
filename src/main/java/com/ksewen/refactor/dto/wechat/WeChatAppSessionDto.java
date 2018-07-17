@@ -1,4 +1,4 @@
-package com.ksewen.refactor.dto;
+package com.ksewen.refactor.dto.wechat;
 
 /**
  * @program: refactor
